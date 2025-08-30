@@ -40,11 +40,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="products/index"
+        name="watch/index"
         options={{
-          title: "Products",
+          title: "Watch",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="star.fill" color={color} />
+            <IconSymbol size={28} name="video" color={color} />
           ),
         }}
       />

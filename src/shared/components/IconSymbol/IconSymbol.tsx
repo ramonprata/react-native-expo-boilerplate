@@ -24,6 +24,8 @@ const MAPPING = {
   "heart.fill": "favorite",
   heart: "favorite-border",
   "star.fill": "star",
+  video: "video-label",
+  play: "play-circle",
 } as IconMapping;
 
 /**

@@ -11,6 +11,7 @@ export interface IBoxProps {
   gap?: number;
   padding?: number;
   justifyContent?: "flex-start" | "center" | "flex-end" | "space-between";
+  alignItems?: "flex-start" | "center" | "flex-end" | "baseline";
 }
 export const Box = styled.View<IBoxProps>((props) => ({
   width: "100%",
@@ -27,5 +28,8 @@ export const Box = styled.View<IBoxProps>((props) => ({
   }),
   ...(props.justifyContent && {
     justifyContent: props.justifyContent,
+  }),
+  ...(props.alignItems && {
+    alignItems: props.alignItems,
   }),
 }));
