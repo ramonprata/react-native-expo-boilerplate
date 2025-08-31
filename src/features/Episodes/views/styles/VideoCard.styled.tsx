@@ -3,16 +3,17 @@ import styled from "@emotion/native";
 import { View } from "react-native";
 
 export const CardVideoWrapper = styled(BoxContent)({
-  padding: 16,
+  paddingHorizontal: 16,
   gap: 16,
   justifyContent: "center",
   alignItems: "center",
+  width: "100%",
 });
 
 export const ImageWrapper = styled.ImageBackground({
-  width: "100%",
   aspectRatio: 3 / 2,
-  borderRadius: 12,
+  width: "100%",
+  borderRadius: 8,
   overflow: "hidden",
   alignItems: "center",
   justifyContent: "center",
@@ -38,3 +39,16 @@ export const ClassificationText = styled(ThemedText)({
   color: "#ffffff",
   lineHeight: 12,
 });
+
+export const DescriptionWrapper = styled(BoxContent)({
+  padding: 12,
+});
+
+export const DescriptionText = styled(ThemedText)({
+  fontSize: 12,
+});
+
+export const Divider = styled(View)(({ theme }) => ({
+  borderBottomWidth: 1,
+  borderBottomColor: theme.colors.background,
+}));

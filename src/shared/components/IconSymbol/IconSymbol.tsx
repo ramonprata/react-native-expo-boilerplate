@@ -26,6 +26,7 @@ const MAPPING = {
   "star.fill": "star",
   video: "video-label",
   play: "play-circle",
+  "arrow.backward": "arrow-back",
 } as IconMapping;
 
 /**

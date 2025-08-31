@@ -1,9 +1,9 @@
 {
   "expo": {
     "name": "react-native-expo-boilerplate",
-    "slug": "react-native-expo-boilerplate",
+    "slug": "cosmos",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "reactnativeexpoboilerplate",
     "userInterfaceStyle": "dark",
@@ -13,10 +13,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/cosmos-favicon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.ramonpratadti.cosmos"
     },
     "web": {
       "bundler": "metro",
@@ -28,10 +29,10 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/cosmos-favicon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#000000"
         }
       ],
       [
@@ -44,6 +45,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "3481c573-8e0d-4565-9bcb-d22150489050"
+      }
+    },
+    "owner": "ramonpratadti"
   }
 }
