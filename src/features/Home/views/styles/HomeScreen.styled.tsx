@@ -10,7 +10,6 @@ export const Content = styled(View)({
 
 export const WatchButton = styled.TouchableOpacity({
   paddingBottom: 16,
-
   alignItems: "center",
   justifyContent: "flex-end",
 });
@@ -19,8 +18,10 @@ export const ButtonChildren = styled.View(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "row",
-  padding: 12,
+  paddingHorizontal: 12,
+  paddingVertical: 8,
   borderRadius: 8,
-  backgroundColor: theme.colors.foreground,
+  borderColor: theme.colors.foreground,
+  borderWidth: 1,
   gap: 8,
 }));

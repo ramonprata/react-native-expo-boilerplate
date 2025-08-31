@@ -53,8 +53,8 @@ export default function HomeScreen() {
 
         <WatchButton onPress={() => router.push("/episodes")}>
           <ButtonChildren>
-            <IconSymbol name="play" size={36} color="black" />
-            <ThemedText type="subtitle" lightColor="white" darkColor="black">
+            <IconSymbol name="play" size={36} color="white" />
+            <ThemedText type="subtitle" lightColor="dark" darkColor="white">
               {HOME_SCREEN_TEXTS.watchNow}
             </ThemedText>
           </ButtonChildren>

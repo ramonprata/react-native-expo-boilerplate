@@ -1,3 +1,4 @@
+import { useTheme } from "@emotion/react";
 import { BoxContent, Loader } from "@shared/components";
 import React from "react";
 import { ScrollView } from "react-native";
@@ -7,6 +8,7 @@ import VideoCard from "./VideoCard";
 
 const Videos = () => {
   const { data, error, isLoading } = useEpisodesData();
+  const theme = useTheme();
 
   if (isLoading) {
     return <Loader />;
@@ -24,8 +26,8 @@ const Videos = () => {
     <BoxContent flex={2}>
       <ScrollView
         contentContainerStyle={{
-          gap: 24,
-          paddingVertical: 16,
+          backgroundColor: theme.colors.background,
+          gap: 2,
         }}
       >
         {data.map((video) => {

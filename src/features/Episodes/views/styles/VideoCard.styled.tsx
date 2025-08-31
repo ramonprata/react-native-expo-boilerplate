@@ -3,7 +3,7 @@ import styled from "@emotion/native";
 import { View } from "react-native";
 
 export const CardVideoWrapper = styled(BoxContent)({
-  paddingHorizontal: 16,
+  padding: 16,
   gap: 16,
   justifyContent: "center",
   alignItems: "center",
@@ -48,8 +48,3 @@ export const DescriptionWrapper = styled(BoxContent)({
 export const DescriptionText = styled(ThemedText)({
   fontSize: 12,
 });
-
-export const Divider = styled(View)(({ theme }) => ({
-  borderBottomWidth: 1,
-  borderBottomColor: theme.colors.background,
-}));
