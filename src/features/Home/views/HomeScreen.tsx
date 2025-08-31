@@ -2,17 +2,20 @@ import Header from "@/src/_app/views/Header";
 import { BoxContent, IconSymbol, ThemedText } from "@shared/components";
 import { useRouter } from "expo-router";
 import { HOME_SCREEN_TEXTS } from "../utils/constants";
-import { ButtonChildren, WatchButton } from "./styles/HomeScreen.styled";
+import {
+  ButtonChildren,
+  Content,
+  WatchButton,
+} from "./styles/HomeScreen.styled";
 
 export default function HomeScreen() {
   const router = useRouter();
 
   return (
-    <BoxContent gap={16}>
+    <BoxContent gap={8}>
       <Header />
-
-      <BoxContent padding={16} centerHorizontal>
-        <BoxContent gap={24} flex={1}>
+      <BoxContent centerHorizontal justifyContent="space-between" flex={1}>
+        <Content>
           <ThemedText type="title">{HOME_SCREEN_TEXTS.title}</ThemedText>
           <BoxContent gap={8}>
             <ThemedText type="subtitle">
@@ -46,17 +49,12 @@ export default function HomeScreen() {
               </BoxContent>
             </BoxContent>
           </BoxContent>
-        </BoxContent>
+        </Content>
 
         <WatchButton onPress={() => router.push("/episodes")}>
           <ButtonChildren>
             <IconSymbol name="play" size={36} color="black" />
-            <ThemedText
-              type="subtitle"
-              lightColor="white"
-              darkColor="black"
-              style={{ marginLeft: 8 }}
-            >
+            <ThemedText type="subtitle" lightColor="white" darkColor="black">
               {HOME_SCREEN_TEXTS.watchNow}
             </ThemedText>
           </ButtonChildren>

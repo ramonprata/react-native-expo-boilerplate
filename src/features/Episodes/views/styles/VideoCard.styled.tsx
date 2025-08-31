@@ -41,7 +41,8 @@ export const ClassificationText = styled(ThemedText)({
 });
 
 export const DescriptionWrapper = styled(BoxContent)({
-  padding: 12,
+  padding: 16,
+  paddingTop: 0,
 });
 
 export const DescriptionText = styled(ThemedText)({
