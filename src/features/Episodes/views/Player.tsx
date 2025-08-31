@@ -1,26 +1,27 @@
-import { IconSymbol, ThemedText } from "@/src/shared/components";
+import { IconSymbol, Loader, ThemedText } from "@/src/shared/components";
+import { useLandScape } from "@shared/hooks";
 import { useEvent } from "expo";
-import { useLocalSearchParams, useRouter } from "expo-router";
-import * as ScreenOrientation from "expo-screen-orientation";
+import { useRouter } from "expo-router";
 import { useVideoPlayer } from "expo-video";
-import React, { useEffect, useState } from "react";
-import { ActivityIndicator, StatusBar, TouchableOpacity } from "react-native";
-import { VIDEO_PATHS } from "../utils/constants";
+import React, { useState } from "react";
+import { StatusBar, TouchableOpacity } from "react-native";
+import { useEpisodesState } from "../hooks/useEpisodesSlice";
 import {
   Container,
+  HiddenHeaderWrapper,
   LoadingOverlay,
   PlayerHeader,
   VideoPlayer,
-  VideoWrapper,
 } from "./styles/Player.styled";
 
 export default function PlayerScreen() {
-  const { videoId } = useLocalSearchParams();
   const router = useRouter();
 
-  const video = VIDEO_PATHS.find((v) => v.id === videoId)!;
+  const selectedEpisode = useEpisodesState("selectedEpisode");
 
-  const player = useVideoPlayer(video.uri, (player) => {
+  useLandScape();
+
+  const player = useVideoPlayer(selectedEpisode?.uri ?? "", (player) => {
     player.loop = true;
     player.play();
   });
@@ -42,39 +43,26 @@ export default function PlayerScreen() {
     });
   };
 
-  useEffect(() => {
-    const forceLandscape = async () => {
-      await ScreenOrientation.lockAsync(
-        ScreenOrientation.OrientationLock.LANDSCAPE
-      );
-    };
-
-    forceLandscape();
-
-    return () => {
-      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
-    };
-  }, []);
-
   return (
     <Container>
       <StatusBar hidden />
       {status === "loading" && (
         <LoadingOverlay>
-          <ActivityIndicator size="large" color="white" />
+          <Loader />
         </LoadingOverlay>
       )}
 
-      <VideoWrapper onPress={handleTouchOnScreen}>
+      <HiddenHeaderWrapper onPress={handleTouchOnScreen}>
         {showHeader && (
-          <PlayerHeader flexDirection="row" gap={8} alignItems="center">
+          <PlayerHeader flexDirection="row" gap={12} alignItems="center">
             <TouchableOpacity onPress={() => router.back()}>
               <IconSymbol name="arrow.backward" size={28} color="white" />
             </TouchableOpacity>
-            <ThemedText>{video.title}</ThemedText>
+            <ThemedText type="subtitle">{selectedEpisode?.title}</ThemedText>
           </PlayerHeader>
         )}
-      </VideoWrapper>
+      </HiddenHeaderWrapper>
+
       <VideoPlayer player={player} allowsFullscreen allowsPictureInPicture />
     </Container>
   );

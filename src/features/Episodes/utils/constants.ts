@@ -63,7 +63,7 @@ export const VIDEO_PATHS = [
     id: "7",
     ep: "07",
     title: "07. The Clean Room",
-    uri: "https://dn720305.ca.archive.org/0/items/cosmospaceodyssey.com/07%20The%20Clean%20Room%20A%20Sala%20Limpa.mp4",
+    uri: "",
     duration: "41m",
     classification: "AL",
     description:
@@ -73,7 +73,7 @@ export const VIDEO_PATHS = [
     id: "8",
     ep: "08",
     title: "08. Sisters of the Sun",
-    uri: "https://ia600407.us.archive.org/29/items/cosmospaceodyssey.com/08%20%20Sisters%20of%20the%20Sun%20Irm%C3%A3s%20do%20Sol.mp4",
+    uri: "",
     duration: "40m",
     classification: "AL",
     description:
@@ -83,7 +83,7 @@ export const VIDEO_PATHS = [
     id: "9",
     ep: "09",
     title: "09. The Lost Worlds of Planet Earth",
-    uri: "https://ia600407.us.archive.org/29/items/cosmospaceodyssey.com/09%20%20The%20Lost%20Worlds%20of%20Planet%20Earth%20Os%20Mundos%20Perdidos%20do%20Planeta%20Terra.mp4",
+    uri: "",
     duration: "41m",
     classification: "AL",
     description:
@@ -93,7 +93,7 @@ export const VIDEO_PATHS = [
     id: "10",
     ep: "10",
     title: "10. The Electric Boy",
-    uri: "https://dn720305.ca.archive.org/0/items/cosmospaceodyssey.com/10%20The%20Electric%20Boy%20O%20Menino%20El%C3%A9trico.mp4",
+    uri: "",
     duration: "39m",
     classification: "AL",
     description:
@@ -103,7 +103,7 @@ export const VIDEO_PATHS = [
     id: "11",
     ep: "11",
     title: "11. The Immortals",
-    uri: "https://ia800407.us.archive.org/29/items/cosmospaceodyssey.com/11%20The%20Immortals%20Os%20imortais.mp4",
+    uri: "",
     duration: "42m",
     classification: "AL",
     description:
@@ -113,7 +113,7 @@ export const VIDEO_PATHS = [
     id: "12",
     ep: "12",
     title: "12. The World Set Free",
-    uri: "https://dn720305.ca.archive.org/0/items/cosmospaceodyssey.com/12%20The%20World%20Set%20Free%20O%20Mundo%20Libertado.mp4",
+    uri: "",
     duration: "40m",
     classification: "AL",
     description:
@@ -123,7 +123,7 @@ export const VIDEO_PATHS = [
     id: "13",
     ep: "13",
     title: "13. Unafraid of the Dark",
-    uri: "https://ia600407.us.archive.org/29/items/cosmospaceodyssey.com/13%20Unafraid%20of%20the%20Dark%20Sem%20Medo%20do%20Escuro.mp4",
+    uri: "",
     duration: "44m",
     classification: "AL",
     description:

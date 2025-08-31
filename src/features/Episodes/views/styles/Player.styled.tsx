@@ -13,10 +13,9 @@ export const PlayerHeader = styled(BoxContent)({
   top: 0,
   left: 0,
   right: 0,
-  height: 60,
   backgroundColor: "rgba(0,0,0,0.6)",
   paddingHorizontal: 32,
-  paddingVertical: 16,
+  paddingVertical: 32,
 });
 
 export const VideoPlayer = styled(VideoView)({
@@ -35,7 +34,7 @@ export const LoadingOverlay = styled.View({
   backgroundColor: "rgba(0, 0, 0, 0.8)",
 });
 
-export const VideoWrapper = styled.Pressable({
+export const HiddenHeaderWrapper = styled.Pressable({
   height: 64,
   width: "100%",
   position: "absolute",

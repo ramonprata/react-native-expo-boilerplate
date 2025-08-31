@@ -1,3 +1,3 @@
-import { VideosScreen } from "@features/Episodes";
+import { EpisodesScreen } from "@features/Episodes";
 
-export default VideosScreen;
+export default EpisodesScreen;

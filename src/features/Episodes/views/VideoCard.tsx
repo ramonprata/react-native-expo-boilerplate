@@ -2,6 +2,8 @@ import { BoxContent, ThemedText } from "@/src/shared/components";
 import { useRouter } from "expo-router";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
+import { useEpisodesAction } from "../hooks/useEpisodesSlice";
+import { IEpisodeView } from "../types/IEpisode";
 import {
   CardVideoWrapper,
   Classification,
@@ -13,32 +15,25 @@ import {
   PlayButton,
 } from "./styles/VideoCard.styled";
 
-const VideoCard = ({
-  video,
-}: {
-  video: {
-    id: string;
-    title: string;
-    duration: string;
-    classification: string;
-    description: string;
-  };
-}) => {
+const VideoCard = ({ video }: { video: IEpisodeView }) => {
   const router = useRouter();
+
+  const selectEpisode = useEpisodesAction("selectEpisode");
+
+  const handleSelectEpisode = () => {
+    selectEpisode(video);
+    router.push({
+      pathname: "/(tabs)/episodes/player/[videoId]",
+      params: { videoId: video.id },
+    });
+  };
 
   return (
     <React.Fragment key={video.id}>
       <BoxContent>
         <CardVideoWrapper flexDirection="row">
           <BoxContent flex={1} padding={0}>
-            <TouchableOpacity
-              onPress={() =>
-                router.push({
-                  pathname: "/(tabs)/episodes/player/[videoId]",
-                  params: { videoId: video.id },
-                })
-              }
-            >
+            <TouchableOpacity onPress={handleSelectEpisode}>
               <ImageWrapper
                 resizeMode="contain"
                 source={require("../../../../assets/images/cosmos.jpg")}

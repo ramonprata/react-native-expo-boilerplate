@@ -29,7 +29,7 @@ export default function App() {
         >
           <SafeAreaProvider>
             <Slot />
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
           </SafeAreaProvider>
         </EmotionProvider>
       </QueryClientProvider>
