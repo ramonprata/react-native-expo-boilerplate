@@ -1,12 +1,15 @@
-import { getStoryblokApi } from "@storyblok/react";
-import { ASSETS_API_URL, STORIES_API_URL } from "./config";
+import Constants from "expo-constants";
+import { FetchHttpClient } from "../../base";
+import { STORIES_API_URL, STORYBLOK_API } from "./config";
 
 export class CMSApi {
   private static instance: CMSApi;
-  private storyblokApi: ReturnType<typeof getStoryblokApi>;
+  private storyblokApi: FetchHttpClient;
 
   private constructor() {
-    this.storyblokApi = getStoryblokApi();
+    this.storyblokApi = FetchHttpClient.getInstance({
+      baseURL: STORYBLOK_API,
+    });
   }
 
   public static getInstance(): CMSApi {
@@ -16,16 +19,11 @@ export class CMSApi {
     return CMSApi.instance;
   }
 
-  public async getStory(slug: string, params: Record<string, unknown> = {}) {
-    return this.storyblokApi.get(`${STORIES_API_URL}/${slug}`, params);
-  }
-
-  public async getStories(params: Record<string, unknown> = {}) {
-    return this.storyblokApi.get(STORIES_API_URL, params);
-  }
-
-  public async getAssets(params: Record<string, unknown> = {}) {
-    return this.storyblokApi.get(ASSETS_API_URL, params);
+  public async getStories<T>(params: Record<string, unknown> = {}) {
+    return this.storyblokApi.get<T>(
+      `${STORIES_API_URL}?token=${Constants.expoConfig?.extra?.storyblokApiToken}`,
+      params
+    );
   }
 }
 const cmsInstance = CMSApi.getInstance();

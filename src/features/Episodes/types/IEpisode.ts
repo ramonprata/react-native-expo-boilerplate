@@ -1,3 +1,7 @@
+export interface IEpisodesResponse {
+  stories: IEpisodeDto[];
+}
+
 export interface IEpisodeDto {
   content: {
     _uid: string;
