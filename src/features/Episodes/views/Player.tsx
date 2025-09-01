@@ -15,11 +15,13 @@ import {
 } from "./styles/Player.styled";
 
 export default function PlayerScreen() {
+  const [showPlayer, setShowPlayer] = useState(true);
+
   const router = useRouter();
 
   const selectedEpisode = useEpisodesState("selectedEpisode");
 
-  useLandScape();
+  const { unlock } = useLandScape();
 
   const player = useVideoPlayer(selectedEpisode?.uri ?? "", (player) => {
     player.loop = true;
@@ -43,6 +45,16 @@ export default function PlayerScreen() {
     });
   };
 
+  const handleBack = async () => {
+    setShowPlayer(false);
+    await unlock();
+    router.back();
+  };
+
+  if (!showPlayer) {
+    return null;
+  }
+
   return (
     <Container>
       <StatusBar hidden />
@@ -55,7 +67,7 @@ export default function PlayerScreen() {
       <HiddenHeaderWrapper onPress={handleTouchOnScreen}>
         {showHeader && (
           <PlayerHeader flexDirection="row" gap={12} alignItems="center">
-            <TouchableOpacity onPress={() => router.back()}>
+            <TouchableOpacity onPress={handleBack}>
               <IconSymbol name="arrow.backward" size={28} color="white" />
             </TouchableOpacity>
             <ThemedText type="subtitle">{selectedEpisode?.title}</ThemedText>

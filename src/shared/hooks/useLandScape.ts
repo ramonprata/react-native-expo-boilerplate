@@ -11,9 +11,11 @@ export const useLandScape = () => {
     };
 
     forceLandscape();
-
-    return () => {
-      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
-    };
   }, []);
+
+  const unlock = async () => {
+    await ScreenOrientation.unlockAsync();
+  };
+
+  return { unlock };
 };
