@@ -1,10 +1,9 @@
 import { IconSymbol, Loader, ThemedText } from "@/src/shared/components";
-import { useLandScape } from "@shared/hooks";
 import { useEvent } from "expo";
 import { useRouter } from "expo-router";
 import { useVideoPlayer } from "expo-video";
-import React, { useEffect, useState } from "react";
-import { BackHandler, StatusBar, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { StatusBar, TouchableOpacity } from "react-native";
 import { useEpisodesState } from "../hooks/useEpisodesSlice";
 import {
   Container,
@@ -15,29 +14,14 @@ import {
 } from "./styles/Player.styled";
 
 export default function PlayerScreen() {
-  const [showPlayer, setShowPlayer] = useState(true);
-
   const router = useRouter();
 
   const selectedEpisode = useEpisodesState("selectedEpisode");
 
-  const { unlock } = useLandScape();
-
   const handleBack = React.useCallback(() => {
-    setShowPlayer(false);
-    unlock();
     router.back();
     return true;
-  }, [unlock, router]);
-
-  useEffect(() => {
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      handleBack
-    );
-
-    return () => backHandler.remove();
-  }, [handleBack]);
+  }, [router]);
 
   const player = useVideoPlayer(selectedEpisode?.uri ?? "", (player) => {
     player.loop = true;
@@ -60,10 +44,6 @@ export default function PlayerScreen() {
       return !prev;
     });
   };
-
-  if (!showPlayer) {
-    return null;
-  }
 
   return (
     <Container>
